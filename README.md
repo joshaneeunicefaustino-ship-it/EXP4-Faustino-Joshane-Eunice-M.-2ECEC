@@ -44,20 +44,30 @@ including Name, Gender, Track, Hometown, Math, GEAS, Electronics, and Average.
 **- Pandas as pd was imported in order to access the library pandas and to also shorten pandas  
 instead of typing it multiple times ```import pandas as pd```**
 
-**-matplotlib.pyplo was imported in order to access the library and to also shorten into plt  
-instead of typing matplotlib.pyplo multiple times```import matplotlib.pyplot as plt ```**
+- ```import``` is used to bring a Python library into the program, while ```as pd``` gives pandas a shorter name that can be used when calling its functions.
+
+**-matplotlib.pyplot was imported in order to access the library and to also shorten into plt  
+instead of typing matplotlib.pyplot multiple times```import matplotlib.pyplot as plt ```**
+
+- ```pyplot``` is a module used for creating plots and graphs, while ```as plt``` gives it a shorter name for easier use in the code.
 
 **CODE:** ```df = pd.read_excel("board2.xlsx")```
 
-The ***pd.read*** function in Pandas is used to read data from excel files into a Pandas DataFrame. It is assigned as df.
+The ```pd.read_excel()``` function in Pandas is used to read data from Excel files into a Pandas DataFrame. It is assigned as df.
+
+- ```read_excel()``` is a Pandas function used to read data from an Excel file and store it as a DataFrame.
 
 **CODE:**  ```data = df.copy()```
 - The .copy() method in Python is used to create a shallow copy of a list or dictionary. This means that it creates a new object, but does not create copies of nested objects within the original object.
+- ```.copy()``` creates a separate copy of the DataFrame so that changes made to ```data``` will not directly modify the original ```df```.
 
 **CODE:**  ```data["Average"] = data[["Math", "GEAS", "Electronics", "Communication"]].mean(axis=1)```
 - This code is used include a column average of those included in [] which is ["Math", "GEAS", "Electronics", "Communication"]
 
-
+- ```data[[...]]``` selects the columns Math, GEAS, Electronics, and Communication.
+- ```.mean(axis=1)``` calculates the mean across each row, so each student gets one Average based on the four subject scores.
+- ```axis=1``` means the calculation is performed horizontally across the columns.
+- 
 # A. VISAYAS COMMUNICATION DATAFRAME
 
 > Create a DataFrame named VisComm containing students whose Hometown is Visayas and whose Track
@@ -95,7 +105,9 @@ VisFemale = data[
 - The code used boolean conditioning in which it only showed columns Name, Track, GEAS, Electronics, and Average
 - It also has a condition that under the column Hometown, only Visayas should be shown and under Gender only Female.
 - So the template is like (dataframe[selected column] == "find word")
-  
+  - ```==``` checks whether the value matches the specified category.
+- ```&``` means both conditions must be true.
+
 > Display VisFemale. Then display only the rows of VisFemale whose Average is at least 60. Do not
 overwrite VisFemale when performing this second filter.
 
@@ -166,7 +178,14 @@ plt.ylabel("Average")
 plt.show()
 ```
 - In this code we used functions like:
-  
+- ```plt.figure()``` creates a new figure for the plot.
+- ```.plot(kind="bar")``` creates a bar chart from the grouped mean values.
+- ```plt.title()``` adds a title to the chart.
+- ```plt.ylabel()``` labels the y-axis.
+- ```plt.show()``` displays the figure in the notebook.
+- The three separate ```plt.figure()``` commands create three individual bar charts.
+- ```kind="bar"``` specifies that a bar chart will be used.
+
 > d. Below the figure, write three concise statements identifying the category with the highest sample
 mean for each feature
 
